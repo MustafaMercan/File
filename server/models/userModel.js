@@ -19,6 +19,10 @@ const userSchema = new Schema({
         type: String,
         required: true,
         trim: true
+      },
+      authToken:{
+        type:String,
+        required:true,
       }
 })
 
