@@ -10,8 +10,25 @@
 
 
 ###
- 
-## Current Status  (First Commit)
+
+ ## Current Status  (Second Commit )
+
+- Added a protected render feature using React Router.
+- Implemented token refresh on every user login.
+- Controlled authorization processes using Context.
+- Implemented encryption for the token using certain algorithms.
+- Token information is refreshed and encrypted uniquely for each user upon every login.
+- Authorization processes are being monitored (verification against data in the database is not yet being performed).
+
+
+
+
+
+
+
+
+  
+## First Commit
 
 - API has been created and executed.
 - Database has been established and connected.
