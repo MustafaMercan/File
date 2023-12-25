@@ -1,17 +1,24 @@
 import './App.css'
-import { Route,Routes } from 'react-router-dom'
-import Home from './pages/Home'
-import { gapi } from 'gapi-script'
+import RenderNavigation from './structure/RenderNavigation'
 import { useEffect } from 'react'
+import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { AuthContext } from './context/auth/AuthWrapper'
 
 function App() {
+
+  const {authentication} = useContext(AuthContext);
+
+
+
+  
+
+
 
 
   return (
     <>
-      <Routes>
-          <Route  path='/' element={<Home/>}/>
-      </Routes>
+      <RenderNavigation/>
     </>
   )
 }
