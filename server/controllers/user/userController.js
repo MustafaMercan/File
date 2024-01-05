@@ -17,34 +17,39 @@ const loginController = async (req, res) => {
 
         const { given_name, family_name, email } = decode;
 
-        let token = generateUniqueKey();
+        let key = generateUniqueKey();
 
         
-        const hashedToken = encrypt(token);
+        const hashedToken = encrypt(key);
         console.log('hashed token - > ', hashedToken);
         console.log('encrypt token -> ', decrypt(hashedToken))
-        token = createToken({token:hashedToken})
 
         if (given_name && family_name && email) {
 
             const existingUser = await User.findOne({ email: email });
             if (existingUser) {
                 console.log(`User Already Registered in the system. ${existingUser}`);
-                existingUser.authToken = hashedToken;
+                const token = createToken({token:hashedToken,id:existingUser._id})
+                
+                existingUser.authToken = token;
                 await existingUser.save();
+                existingUser.authToken = token;
                 res.status(200).json({ user: existingUser, serverMessage: "ok",token});
                 return;
             } else {
+
+                
                 const newUser = new User({
                     email: email,
                     name: given_name,
                     surname: family_name,
-                    authToken:hashedToken
+                    authToken:key
                 })
                     .save()
                     .then(savedUser => {
-
+                        const token = createToken({token:hashedToken,id:savedUser._id})
                         console.log(`New User Created: `, savedUser);
+                        savedUser.authToken = token;
                         res.status(201).json({ user: savedUser, serverMessage: "ok", token});
                         return;
                     })
