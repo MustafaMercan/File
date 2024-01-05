@@ -8,13 +8,10 @@ import { AuthContext } from './context/auth/AuthWrapper'
 function App() {
 
   const {authentication} = useContext(AuthContext);
-
-
-
-  
-
-
-
+  useEffect(() => {
+    //authentication();
+    //console.log('app js');
+},[])
 
   return (
     <>
@@ -22,5 +19,4 @@ function App() {
     </>
   )
 }
-
 export default App

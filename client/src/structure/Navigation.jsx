@@ -3,6 +3,6 @@ import Profile from "../pages/Profile";
 
 export const nav = [
     {path : "/" , name : "Home", element: <Home /> , isProtect: false},
-    {path : "/profile/:id" , name : "Profile", element: <Profile /> , isProtect: true},
+    {path : "/profile/" , name : "Profile", element: <Profile /> , isProtect: true},
 
 ]
