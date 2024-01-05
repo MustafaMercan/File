@@ -12,7 +12,7 @@
 ###
 
 
- ## Current Status  ( ThirdCommit )
+ ## Current Status  ( Third Commit )
  - During the rendering process of the 'protect' feature in the project, I found a security vulnerability and a bug. After a user accessed a protected page, upon hitting F5, the page wasn't rendered again unless the user logged in again, preventing access to the page.
  - Later on, I successfully managed the authorization process. However, I encountered another issue: when a user with ID 555 logged in and manually entered a different ID in the URL, they could still gain access. This issue has been fixed.
  - The rough design of the Profile Page has been implemented into the project (it's not responsive yet, developed only for desktop compatibility).
